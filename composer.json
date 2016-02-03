@@ -1,0 +1,15 @@
+{
+    "name": "umanit/doctrine",
+    "authors": [
+        {
+            "name": "Axel Anceau",
+            "email": "aanceau@umanit.fr"
+        }
+    ],
+    "require": {
+        "doctrine/orm": "^2.5"
+    },
+    "autoload": {
+        "psr-4": { "": "src/" }
+    }
+}
