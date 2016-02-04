@@ -21,9 +21,19 @@ class Post
     private $subject;
 
     /**
-     * @Column(name="content", type="text")
+     * @Column(name="date", type="datetime")
      */
-    private $content;
+    private $date;
+
+    /**
+     * @Column(name="message", type="text")
+     */
+    private $message;
+
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
 
     /**
      * Get the value of Id
@@ -38,7 +48,7 @@ class Post
     /**
      * Set the value of Id
      *
-     * @param mixed $id
+     * @param mixed id
      *
      * @return self
      */
@@ -62,7 +72,7 @@ class Post
     /**
      * Set the value of Subject
      *
-     * @param mixed $subject
+     * @param mixed subject
      *
      * @return self
      */
@@ -74,26 +84,51 @@ class Post
     }
 
     /**
-     * Get the value of Content
+     * Get the value of Date
      *
      * @return mixed
      */
-    public function getContent()
+    public function getDate()
     {
-        return $this->content;
+        return $this->date;
     }
 
     /**
-     * Set the value of Content
+     * Set the value of Date
      *
-     * @param mixed $content
+     * @param mixed date
      *
      * @return self
      */
-    public function setContent($content)
+    public function setDate($date)
     {
-        $this->content = $content;
+        $this->date = $date;
 
         return $this;
     }
+
+    /**
+     * Get the value of Message
+     *
+     * @return mixed
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * Set the value of Message
+     *
+     * @param mixed message
+     *
+     * @return self
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+
+        return $this;
+    }
+
 }

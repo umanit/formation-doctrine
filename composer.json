@@ -6,10 +6,11 @@
             "email": "aanceau@umanit.fr"
         }
     ],
-    "require": {
-        "doctrine/orm": "^2.5"
-    },
     "autoload": {
         "psr-4": { "": "src/" }
+    },
+    "require": {
+        "doctrine/orm": "^2.5",
+        "symfony/yaml": "^3.0"
     }
 }

@@ -13,7 +13,7 @@ $dbParams = array(
     'driver'   => 'pdo_mysql',
     'user'     => 'root',
     'password' => 'root',
-    'dbname'   => 'foo',
+    'dbname'   => 'doctrine',
 );
 
 $config = Setup::createAnnotationMetadataConfiguration($paths, $isDevMode);

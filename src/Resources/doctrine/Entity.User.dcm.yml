@@ -1,0 +1,21 @@
+Entity\User:
+    type: entity # @Entity
+    table: user # @Table(name="user")
+    id:
+        id:
+            name: id      # @Column(name="id")
+            type: integer # @Column(type="integer")
+            generator:
+                strategy: AUTO # @GeneratedValue
+    fields:
+        username:
+            name: username
+            type: string
+            length: 200 # @Column(name="username", type="string", length="200")
+        password:
+            name: password
+            type: string
+            length: 50
+        description:
+            name: description
+            type: text
