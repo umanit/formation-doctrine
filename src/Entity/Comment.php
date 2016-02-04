@@ -21,6 +21,16 @@ class Comment
     private $message;
 
     /**
+     * @Column(name="date", type="datetime")
+     */
+    private $date;
+
+    public function __construct()
+    {
+        $this->date = new \DateTime();
+    }
+
+    /**
      * Get the value of Id
      *
      * @return mixed
@@ -64,6 +74,31 @@ class Comment
     public function setMessage($message)
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of Date
+     *
+     * @return mixed
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set the value of Date
+     *
+     * @param mixed date
+     *
+     * @return self
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
 
         return $this;
     }
