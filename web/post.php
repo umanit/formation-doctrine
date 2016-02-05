@@ -13,6 +13,8 @@ if (isset($_POST['submit'])) {
     $entityManager->flush($post);
 }
 
+$posts = $entityManager->getRepository('Entity\Post')->findBy(array(), array('date' => 'DESC'));
+
 ?>
 
 <!DOCTYPE html>
@@ -35,5 +37,10 @@ if (isset($_POST['submit'])) {
 
             <input type="submit" name="submit" value="Envoyer"/>
         </form>
+
+        <h2>MES SUPERS POSTS !</h2>
+        <?php foreach ($posts as $post) : ?>
+            <a href="comment.php?id=<?= $post->getId(); ?>"><?= $post->getSubject(); ?></a><br/>
+        <?php endforeach; ?>
     </body>
 </html>
