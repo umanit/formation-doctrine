@@ -94,8 +94,8 @@ $query = $entityManager->createQuery(
     'SELECT t FROM Test t WHERE t.text = "coucou"'
 );
 
-// table de tous les tests ayant comme text 'coucou'
-$users = $query->getResult();
+// Résultat de tous les tests ayant comme text 'coucou'
+$tests = $query->getResult();
                     </code></pre>
                 </section>
                 <section>

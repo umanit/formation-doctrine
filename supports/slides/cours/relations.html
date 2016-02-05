@@ -134,6 +134,41 @@ class Address
                     <h2>Documentation</h2>
                     <a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/association-mapping.html">http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/association-mapping.html</a>
                 </section>
+                <section>
+                    <h2>Mise à jour en cascade</h2>
+                    <p>
+                        Poblème : Que faire lorsqu'une entité ayant des relations est supprimée, mise à jour, ou autre ? <strong>Les cascades</strong>
+                    </p>
+                    <h2>Exemple (doc)</h2>
+                    <pre><code>
+&lt;?php
+class User
+{
+    /**
+     * @OneToMany(targetEntity="Comment", mappedBy="author", cascade={"persist", "remove"})
+     */
+    private $commentsAuthored;
+}
+                    </code></pre>
+                </section>
+                <section>
+                    <p>
+                        Poblème 2 : Les cascades ne fonctionnent que pour les propriétaires de l'association. Que faire dans le cas d'une relation unidirectionnelle ?
+                        <strong>La base de données</strong> (ex : onDelete)
+                    </p>
+                    <h2>Exemple (doc)</h2>
+                    <pre><code>
+&lt;?php
+class User
+{
+    /**
+     * @OneToMany(targetEntity="Group")
+     * @JoinColumn(name="group_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $group;
+}
+                    </code></pre>
+                </section>
             </div>
         </div>
         <script src="../lib/reveal/lib/js/head.min.js"></script>

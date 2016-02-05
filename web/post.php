@@ -13,7 +13,11 @@ if (isset($_POST['submit'])) {
     $entityManager->flush($post);
 }
 
-$posts = $entityManager->getRepository('Entity\Post')->findBy(array(), array('date' => 'DESC'));
+if (isset($_GET['search'])) {
+    $posts = $entityManager->getRepository('Entity\Post')->searchSubject($_GET['search']);
+} else {
+    $posts = $entityManager->getRepository('Entity\Post')->findBy(array(), array('date' => 'DESC'));
+}
 
 ?>
 
@@ -25,6 +29,15 @@ $posts = $entityManager->getRepository('Entity\Post')->findBy(array(), array('da
         <title>Les posts</title>
     </head>
     <body>
+        <form method="GET" action="post.php">
+            <label>
+                Rechercher
+                <input type="text" name="search"/>
+            </label>
+            <input type="submit" value="Rechercher"/>
+        </form>
+
+
         <form method="post" action="/post.php">
             <label>
                 Subject
