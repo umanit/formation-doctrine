@@ -76,6 +76,8 @@
     // ou
     $test = $entityManager->getRepository('Test')->find(1);
                     </code></pre>
+                </section>
+                <section>
                     <h2>Documentation</h2>
                     <a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/working-with-objects.html">http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/working-with-objects.html</a>
                 </section>
@@ -95,6 +97,8 @@ $query = $entityManager->createQuery(
 // table de tous les tests ayant comme text 'coucou'
 $users = $query->getResult();
                     </code></pre>
+                </section>
+                <section>
                     <h2>Documentation</h2>
                     <a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/dql-doctrine-query-language.html">http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/dql-doctrine-query-language.html</a>
                 </section>
@@ -120,7 +124,8 @@ $qb
 
 return $qb->getQuery()->getResult();  // retourne le résultat
                     </code></pre>
-
+                </section>
+                <section>
                     <h2>Documentation</h2>
                     <a href="http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/query-builder.html">http://docs.doctrine-project.org/projects/doctrine-orm/en/latest/reference/query-builder.html</a>
                 </section>
@@ -157,7 +162,8 @@ class TestRepository extends \Doctrine\ORM\EntityRepository
     }
 }
                     </code></pre>
-
+                </section>
+                <section>
                     <h2>Usage</h2>
                     <pre><code>
 &lt;?php

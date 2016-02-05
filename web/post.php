@@ -17,6 +17,7 @@ $posts = $entityManager->getRepository('Entity\Post')->findBy(array(), array('da
 
 ?>
 
+
 <!DOCTYPE html>
 <html>
     <head>

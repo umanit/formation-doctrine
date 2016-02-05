@@ -16,6 +16,8 @@ if (isset($_POST['submit'])) {
     $entityManager->flush($comment);
 }
 
+$comments = $entityManager->getRepository('Entity\Comment')->findBy(array(), array('date' => 'ASC'));
+
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +32,7 @@ if (isset($_POST['submit'])) {
             <?= $post->getMessage(); ?>
         </p>
 
-        <form method="post" action="/comment.php">
+        <form method="post" action="comment.php?id=<?= $post->getId() ?>">
             <label>
                 Message
                 <input type="text" name="message"/>
@@ -38,5 +40,9 @@ if (isset($_POST['submit'])) {
 
             <input type="submit" name="submit" value="Envoyer"/>
         </form>
+        <h2>Commentaires</h2>
+        <?php foreach ($comments as $comment): ?>
+            <?= $comment->getMessage(); ?><br/>
+        <?php endforeach; ?>
     </body>
 </html>
