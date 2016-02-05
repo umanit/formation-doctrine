@@ -54,7 +54,9 @@ if (isset($_GET['search'])) {
 
         <h2>MES SUPERS POSTS !</h2>
         <?php foreach ($posts as $post) : ?>
-            <a href="comment.php?id=<?= $post->getId(); ?>"><?= $post->getSubject(); ?></a><br/>
+            <a href="comment.php?id=<?= $post->getId(); ?>"><?= $post->getSubject(); ?></a>
+            <a href="edit_post.php?id=<?= $post->getId(); ?>">Éditer</a>
+            <br/>
         <?php endforeach; ?>
     </body>
 </html>
