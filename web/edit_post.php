@@ -1,5 +1,5 @@
 <?php
-require '../bootstrap.php';
+require '../before.php';
 
 $id = $_GET['id'];
 $post = $entityManager->getRepository('Entity\Post')->find($id);
