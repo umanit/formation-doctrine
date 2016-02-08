@@ -2,6 +2,8 @@
 
 namespace Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @Entity(repositoryClass="Repository\PostRepository")
  * @Table(name="post")
@@ -30,8 +32,20 @@ class Post
      */
     private $message;
 
+    /**
+     * @ManyToOne(targetEntity="Entity\User")
+     * @JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $author;
+
+    /**
+     * @OneToMany(targetEntity="Entity\Comment", mappedBy="post", cascade={"remove"})
+     */
+    private $comments;
+
     public function __construct()
     {
+        $this->comments = new ArrayCollection();
         $this->date = new \DateTime();
     }
 
@@ -127,6 +141,55 @@ class Post
     public function setMessage($message)
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+
+    /**
+     * Get the value of Author
+     *
+     * @return mixed
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set the value of Author
+     *
+     * @param mixed author
+     *
+     * @return self
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of Comments
+     *
+     * @return mixed
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Set the value of Comments
+     *
+     * @param mixed comments
+     *
+     * @return self
+     */
+    public function setComments($comments)
+    {
+        $this->comments = $comments;
 
         return $this;
     }

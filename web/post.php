@@ -8,6 +8,7 @@ if (isset($_POST['submit'])) {
     $post = new Post();
     $post->setSubject($_POST['subject']);
     $post->setMessage($_POST['message']);
+    $post->setAuthor($user);
 
     $entityManager->persist($post);
     $entityManager->flush($post);
@@ -56,6 +57,7 @@ if (isset($_GET['search'])) {
         <?php foreach ($posts as $post) : ?>
             <a href="comment.php?id=<?= $post->getId(); ?>"><?= $post->getSubject(); ?></a>
             <a href="edit_post.php?id=<?= $post->getId(); ?>">Éditer</a>
+            <?= $post->getAuthor()->getEmail(); ?>
             <br/>
         <?php endforeach; ?>
     </body>

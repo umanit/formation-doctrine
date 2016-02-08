@@ -11,12 +11,14 @@ if (isset($_GET['id'])) {
 if (isset($_POST['submit'])) {
     $comment = new Comment();
     $comment->setMessage($_POST['message']);
+    $comment->setAuthor($user);
+    $comment->setPost($post);
 
     $entityManager->persist($comment);
     $entityManager->flush($comment);
 }
 
-$comments = $entityManager->getRepository('Entity\Comment')->findBy(array(), array('date' => 'ASC'));
+$comments = $entityManager->getRepository('Entity\Comment')->findBy(array('post' => $post), array('date' => 'ASC'));
 
 ?>
 
